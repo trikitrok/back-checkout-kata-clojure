@@ -4,6 +4,4 @@
   (keyword (str c)))
 
 (defn price [prices-by-good goods]
-  (if (empty? goods)
-    0
-    (prices-by-good (sku (first goods)))))
+  (prices-by-good (sku (first goods)) 0))
