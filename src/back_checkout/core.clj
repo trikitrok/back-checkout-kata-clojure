@@ -7,4 +7,7 @@
   (get-in prices-by-good [good-sku :unit-price] 0))
 
 (defn price [prices-by-good goods]
-  (unit-price prices-by-good (sku (first goods))))
+  (reduce
+    #(+ %1 (unit-price prices-by-good (sku %2)))
+    0
+    goods))

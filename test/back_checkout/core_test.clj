@@ -17,4 +17,8 @@
     (fact
       "one unit of a product costs its unit price"
       (price "A") => 50
-      (price "B") => 30)))
+      (price "B") => 30)
+
+    (fact
+      "one unit of several products cost the sum of their unit prices"
+      (price "AB") => 80)))
