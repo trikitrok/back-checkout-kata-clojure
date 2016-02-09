@@ -6,8 +6,13 @@
 (facts
   "about the checkout system"
 
-  (let [price (partial checkout/price {})]
+  (let [prices-by-good {:A 50}
+        price (partial checkout/price {:A 50})]
 
     (fact
       "the price for zero products is 0"
-      (price "") => 0)))
+      (price "") => 0)
+
+    (fact
+      "one product costs its unit price"
+      (price "A") => 50)))
