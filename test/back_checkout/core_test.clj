@@ -6,8 +6,8 @@
 (facts
   "about the checkout system"
 
-  (let [prices-by-good {:A 50
-                        :B 30}
+  (let [prices-by-good {:A {:unit-price 50}
+                        :B {:unit-price 30}}
         price (partial checkout/price prices-by-good)]
 
     (fact
