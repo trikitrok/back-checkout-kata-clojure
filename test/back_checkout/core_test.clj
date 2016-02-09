@@ -15,6 +15,6 @@
       (price "") => 0)
 
     (fact
-      "one product costs its unit price"
+      "one unit of a product costs its unit price"
       (price "A") => 50
       (price "B") => 30)))
