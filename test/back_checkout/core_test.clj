@@ -8,7 +8,13 @@
 
   (let [prices-by-good {:A {:unit-price 50
                             :special-prices {3 130}}
-                        :B {:unit-price 30}}
+                        :B {:unit-price 30
+                            :special-prices {2 70}}
+                        :C {:unit-price 100
+                            :special-prices {3 200}}
+                        :D {:unit-price 500
+                            :special-prices {2 600}}
+                        :E {:unit-price 80}}
         price (partial checkout/price prices-by-good)]
 
     (fact
@@ -32,4 +38,8 @@
     (fact
       "several units of a product cost the special price
       for the given amount of products"
-      (price "AAA") => 130)))
+      (price "AAA") => 130)
+
+    (fact
+      "several units of products with and without special prices"
+      (price "AAABBBCCCDE") => 1000)))
