@@ -21,4 +21,9 @@
 
     (fact
       "one unit of several products cost the sum of their unit prices"
-      (price "AB") => 80)))
+      (price "AB") => 80)
+
+    (fact
+      "several units of a product cost the sum of its unit prices
+      if there is no special price for the given amount of products"
+      (price "AA") => 100)))
