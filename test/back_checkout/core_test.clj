@@ -18,28 +18,28 @@
         price (partial checkout/price prices-by-good)]
 
     (fact
-      "the price for zero products is 0"
+      "the price for zero goods is 0"
       (price "") => 0)
 
     (fact
-      "one unit of a product costs its unit price"
+      "one unit of a good costs its unit price"
       (price "A") => 50
       (price "B") => 30)
 
     (fact
-      "one unit of several products cost the sum of their unit prices"
+      "one unit of several goods cost the sum of their unit prices"
       (price "AB") => 80)
 
     (fact
-      "several units of a product cost the sum of its unit prices
-      if there is no special price for the given amount of products"
+      "several units of a good cost the sum of its unit prices
+      if there is no special price for the given amount of goods"
       (price "AA") => 100)
 
     (fact
-      "several units of a product cost the special price
-      for the given amount of products"
+      "several units of a good cost the special price
+      for the given amount of goods"
       (price "AAA") => 130)
 
     (fact
-      "several units of products with and without special prices"
+      "several units of goods with and without special prices"
       (price "AAABBBCCCDE") => 1000)))
