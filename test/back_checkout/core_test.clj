@@ -6,7 +6,8 @@
 (facts
   "about the checkout system"
 
-  (let [prices-by-good {:A {:unit-price 50}
+  (let [prices-by-good {:A {:unit-price 50
+                            :special-prices {3 130}}
                         :B {:unit-price 30}}
         price (partial checkout/price prices-by-good)]
 
@@ -26,4 +27,9 @@
     (fact
       "several units of a product cost the sum of its unit prices
       if there is no special price for the given amount of products"
-      (price "AA") => 100)))
+      (price "AA") => 100)
+
+    (fact
+      "several units of a product cost the special price
+      for the given amount of products"
+      (price "AAA") => 130)))
